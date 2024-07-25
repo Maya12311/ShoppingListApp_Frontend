@@ -1,0 +1,28 @@
+.container{
+    padding-left: 50px;
+    padding-top: 40px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.wrapper{
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 1400px;
+    border: 1px solid black;
+    box-shadow: 10px, 10px lightblue;
+    overflow: hidden;
+	background: rgba(0, 0, 0, 0.1);
+    
+
+
+}
+
+#first{
+    float: left;
+}
+
+#second {
+    float: left;
+}
+

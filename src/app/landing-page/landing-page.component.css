@@ -1,0 +1,10 @@
+.pic{
+    width: 700px;
+    height: 600px;
+    margin-top: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 10px 20px 5px black;
+    margin-left: 100px;
+
+}
