@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     OverviewComponent,
     HeaderComponent,
     LandingPageComponent,
+    AddProductComponent,
    
   ],
   imports: [

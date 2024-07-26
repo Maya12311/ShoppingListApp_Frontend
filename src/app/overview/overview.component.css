@@ -22,3 +22,11 @@
 h1{
 	break-inside: avoid;
 }
+
+p{
+	cursor:pointer;
+
+	&:hover{
+		color: blueviolet;
+	}
+}
