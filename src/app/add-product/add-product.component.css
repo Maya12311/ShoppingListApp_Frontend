@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Gloria Hallelujah";
 }
 body {
   display: flex;
@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   width: 100%;
   padding: 0 10px;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah';
 
 }
 body::before {
@@ -41,7 +41,7 @@ form {
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: black;
+  color: white;
   font-size: 30px;
 }
 .input-field {
@@ -61,7 +61,6 @@ input{
 }
 
 label{
-  background-color: orange;
 }
 
 .input-field label {
@@ -69,7 +68,7 @@ label{
   
   left: 0;
   transform: translateY(-50%);
-  color: black;
+  color: white;
   font-weight: bold;
 
   pointer-events: none;

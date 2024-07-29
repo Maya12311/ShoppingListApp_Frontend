@@ -7,6 +7,11 @@ import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { AllProductsService } from './all-products/all-products.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddProductService } from './add-product/add-product.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +20,18 @@ import { AddProductComponent } from './add-product/add-product.component';
     HeaderComponent,
     LandingPageComponent,
     AddProductComponent,
+    AllProductsComponent,
+    
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [AllProductsService, AddProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

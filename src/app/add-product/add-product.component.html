@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glassmorphism Login Form | CodingNepal</title>
+<header>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap">
 
-</head>
+</header>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html>
+
 <body>
   <div class="wrapper">
-    <form action="#">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()" action="#">
       <h1>Add a product to your </h1>
       <h1 class="titel">ShoppingList</h1>
         <div class="input-field">
-          <label>*product name:</label>
+          <label>*Product name:</label>
 
-        <input placeholder=" Which product would you like to add?" type="text" required>
+        <input placeholder=" Which product would you like to add?" type="text" required formControlName="productName">
       </div>
 
       <div class="input-field">
         <label>Pieces:</label>
 
-        <input placeholder=" How many pieces of the product do you need?" type="number" required>
+        <input placeholder=" How many pieces of the product do you need?" type="number"  formControlName="pieces">
       </div>
 
       <div class="input-field">

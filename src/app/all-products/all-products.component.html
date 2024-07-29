@@ -1,0 +1,29 @@
+
+<header>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap">
+
+</header>
+
+
+<body>
+<table >
+<ul >
+    <tr >
+        <th>Product name</th>
+        <th>Amount</th>
+        <th>Gram/Ml</th>
+        <th>Priority</th>
+        <th>Shopping Location</th>
+        <th>Alarm date</th>
+    </tr>
+    <tr *ngFor="let product of products">
+	<td>{{product.productName}}</td>
+	<td>{{product.amount}}</td>
+	<td>{{product.gramMl}}</td>
+	<td>{{product.priority}}</td>
+	<td>{{product.shoppingLocation}}</td>
+	<td>{{product.alarmDate}}</td>
+</tr>
+</ul>
+</table>
+</body>
