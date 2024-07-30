@@ -33,28 +33,24 @@
       <div class="input-field">
         <label>*Priority</label>
 
-        <select >
+        <select formControlName="priority" #selectList (change)="setValue(selectList.value)">
           <option value="" disabled selected>Select your option</option>
 
-
-          <option>today 🚨</option>
-          <option>next week 🫡</option>
-          <option>next month 👍</option>
-          <option value="">sometime 🏝️</option>
+          <option  *ngFor="let c of priority" value="{{c.springName}}">{{c.name}}{{c.id}}</option>
         </select>
-        <span> You can later search the products after priority</span>
-      </div>
+
+        </div>
+
+         
 
 
       <div class="input-field">
         <label>*Shopping location</label>
 
-        <select >
+        <select formControlName="shoppingLocation" #selectLocation (change)="setLocation(selectLocation.value)">
           <option value="" disabled selected>Select your option</option>
 
-          <option>Supermarket 🛒</option>
-          <option>Drug Store 💊</option>
-          <option>Online 💻</option>
+      <option *ngFor="let sl of shoppingLocations" value="{{sl.name}}">{{sl.name}}{{sl.id}}</option>    
         </select>
         <span>You can later search the products after shopping location</span>
       </div>

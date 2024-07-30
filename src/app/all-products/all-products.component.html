@@ -9,21 +9,28 @@
 <table >
 <ul >
     <tr >
+        <th>Todo</th>
         <th>Product name</th>
         <th>Amount</th>
         <th>Gram/Ml</th>
         <th>Priority</th>
         <th>Shopping Location</th>
         <th>Alarm date</th>
+        <th></th>
     </tr>
+    <tbody>
     <tr *ngFor="let product of products">
+        <td>  <input type="checkbox" >
+        </td>
 	<td>{{product.productName}}</td>
 	<td>{{product.amount}}</td>
 	<td>{{product.gramMl}}</td>
 	<td>{{product.priority}}</td>
 	<td>{{product.shoppingLocation}}</td>
 	<td>{{product.alarmDate}}</td>
+    <td></td>
 </tr>
+</tbody>
 </ul>
 </table>
 </body>
