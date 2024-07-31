@@ -20,13 +20,13 @@
       <div class="input-field">
         <label>Pieces:</label>
 
-        <input placeholder=" How many pieces of the product do you need?" type="number"  formControlName="pieces">
+        <input formControlName="amount" placeholder=" How many pieces of the product do you need?" type="number"  >
       </div>
 
       <div class="input-field">
         <label>Size in gram/ml:</label>
 
-        <input placeholder=" Would you like to specify the amount in gram or ml?" type="number" >
+        <input formControlName="gramMl"  placeholder=" Would you like to specify the amount in gram or ml?" type="number" >
       </div>
 
 
@@ -59,8 +59,7 @@
       <div class="input-field">
         <label>Alarm:</label>
 <div>
-        <input id="timepicker" type="date" required>
-        <input placeholder="test" type="time">
+        <input [(ngModel)]="date"  id="timepicker" type="datetime-local"  [ngModelOptions]="{standalone: true}"  >
       </div>
         <span></span>
       </div>
@@ -68,6 +67,10 @@
     
       
       <button type="submit">add product</button>
+      <div>
+        <p style="color: orange">{{successMessage}}</p>
+        <p>{{errorMessage}}</p>
+      </div>
       <div class="register">
         <p>Don't have an account? <a href="#">Register</a></p>
       </div>
