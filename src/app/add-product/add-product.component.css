@@ -160,3 +160,20 @@ select{
 .titel{
   color: darkorange
 }
+
+.success{
+  color: rgb(116, 253, 116);
+  font-size: 30px;
+}
+
+.error{
+  color: red; 
+  font-size: 20px;
+  background-color: white;
+  font-family: "Times New Roman"
+
+}
+
+.error * {
+  font-family: "Times New Roman"
+}

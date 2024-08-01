@@ -3,7 +3,7 @@ export interface Product{
     productName: string;
     amount: number;
     gramMl: number;
-    priority: string;
+    priority: '-1';
     shoppingLocation: string; 
     todo: boolean;
     productCreatedOn: Date; 

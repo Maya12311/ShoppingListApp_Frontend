@@ -8,13 +8,17 @@
 
 <body>
   <div class="wrapper">
+
     <form [formGroup]="registerForm" (ngSubmit)="submit()" action="#">
       <h1>Add a product to your </h1>
       <h1 class="titel">ShoppingList</h1>
         <div class="input-field">
           <label>*Product name:</label>
 
-        <input placeholder=" Which product would you like to add?" type="text" required formControlName="productName">
+        <input placeholder=" Which product would you like to add?" type="text" required formControlName="productName" (change)="startToFillOut()">
+      <div class="error" *ngIf="registerForm.controls['productName'].errors && registerForm.get('productName')?.touched && registerForm.get('productName')?.invalid">
+        <p>This field is required</p>
+      </div>
       </div>
 
       <div class="input-field">
@@ -33,12 +37,15 @@
       <div class="input-field">
         <label>*Priority</label>
 
-        <select formControlName="priority" #selectList (change)="setValue(selectList.value)">
-          <option value="" disabled selected>Select your option</option>
+        <select   formControlName="priority" #selectList (change)="setValue(selectList.value)" required>
+          <option  disabled selected>Select your option</option>
 
-          <option  *ngFor="let c of priority" value="{{c.springName}}">{{c.name}}{{c.id}}</option>
+          <option   *ngFor="let c of priority" value="{{c.springName}}">{{c.name}}{{c.id}}</option>
         </select>
 
+        </div>
+        <div class="error"  *ngIf="registerForm.get('priority')?.invalid && registerForm.get('productName')?.pristine && submitted "  >
+          <p>This field is required</p>
         </div>
 
          
@@ -47,11 +54,15 @@
       <div class="input-field">
         <label>*Shopping location</label>
 
-        <select formControlName="shoppingLocation" #selectLocation (change)="setLocation(selectLocation.value)">
+        <select formControlName="shoppingLocation" #selectLocation (change)="setLocation(selectLocation.value)" required="supermarket|drugstore|online">
           <option value="" disabled selected>Select your option</option>
 
       <option *ngFor="let sl of shoppingLocations" value="{{sl.name}}">{{sl.name}}{{sl.id}}</option>    
         </select>
+
+        <div class="error"   *ngIf="registerForm.get('shoppingLocation')?.invalid && registerForm.get('productName')?.pristine && submitted "  >
+          <p>This field is required</p>
+        </div>
         <span>You can later search the products after shopping location</span>
       </div>
 
@@ -66,15 +77,20 @@
 
     
       
-      <button type="submit">add product</button>
-      <div>
-        <p style="color: orange">{{successMessage}}</p>
-        <p>{{errorMessage}}</p>
+      <button  type="submit">add product</button>
+<div *ngIf=" successMessage!= null">
+      <p class="success"> <strong>{{successMessage}}</strong></p>
+    </div>
+
+      <div *ngIf="errorMessage!=null && registerForm.get('productName')?.untouched" >
+        <p class="error"><strong>{{errorMessage}}</strong></p>
       </div>
       <div class="register">
         <p>Don't have an account? <a href="#">Register</a></p>
       </div>
     </form>
+
+
   </div>
 </body>
 </html>

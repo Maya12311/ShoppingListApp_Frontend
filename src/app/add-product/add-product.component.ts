@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddProductService } from './add-product.service';
 import { compileNgModule } from '@angular/compiler';
 import * as _ from 'underscore';
@@ -11,12 +11,11 @@ import * as _ from 'underscore';
 })
 export class AddProductComponent implements OnInit {
 
-  registerForm!: FormGroup; 
   submitted:boolean= false;
 name:string=""; 
 selectedValue: any;
-  errorMessage: any;
-  successMessage: any; 
+  errorMessage: any="";
+  successMessage: any= ""; 
   priorities!:string;
   shoppingLocation:string=""
 date:Date = new Date(); 
@@ -36,30 +35,31 @@ date:Date = new Date();
   }
 
   ngOnInit(): void {
-    console.log('now: ', _.now());
 
-    this.registerForm = this.fb.group({
-productName:   [this.name],
-amount: [''],
-gramMl: [''],
-priority: [this.priorities],
-shoppingLocation: [this.shoppingLocation],
-alarmDate: [this.date],
-
-todo: ['true'],
-
-    })
   }
+
+
+  registerForm = this.fb.group({
+    productName:   [this.name, Validators.required],
+    amount: [''],
+    gramMl: [''],
+    priority: [this.priorities, Validators.required],
+    shoppingLocation: [this.shoppingLocation, Validators.required],
+    alarmDate: [this.date],
+    
+    todo: ['true'],
+    
+        })
 
   setLocation(location: string){
   this.shoppingLocation=location;
   }
 
   priority = [
-    {id: "🚨", name: "today", springName: "today"},
-    {id: "🫡", name: "next week", springName: "nextWeek"},
-    {id: "👍", name: "next month", springName: "nextMonth"},
-    {id: "🏝️", name: "sometime", springName: "sometime"},
+    {id: "🚨", name: "today", springName: "today", index: 1},
+    {id: "🫡", name: "next week", springName: "nextWeek", index: 2},
+    {id: "👍", name: "next month", springName: "nextMonth" , index: 3},
+    {id: "🏝️", name: "sometime", springName: "sometime" , index: 4},
  ];
 
  shoppingLocations = [
@@ -68,15 +68,37 @@ todo: ['true'],
   {id: "💻", name: "online"}
  ]
   
+ startToFillOut(){
+  this.submitted=false;
+ }
 
   submit(){
+    console.log(this.registerForm.valid)
+    console.log(this.registerForm.value)
+    this.submitted= true;
+
+    console.log("success before", this.successMessage)
 this.errorMessage=null;
 this.successMessage= null;
-this.addProductService.sendData(this.registerForm.value)
-.subscribe(
-  (success)=> {this.successMessage = success.message},
+this.addProductService.sendData(this.registerForm.value).subscribe
+(
+  (success)=> {console.log("is this workin")} ,
   (error)=> {this.errorMessage= error.error.message}
 )
+ 
+
+if(this.registerForm.valid) {
+  this.registerForm.reset(); 
+  this.successMessage= "Product successfully added"
+}
+
+if(this.successMessage===null){
+
+  this.errorMessage="The product could not be added. Please check the error messages"
+}
+
+
+
   }
 
  
