@@ -20,7 +20,7 @@ body::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/assets/addproduct.jpg");
+  background: url("/assets/img/groceries.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -178,4 +178,8 @@ select{
 
 .invalid  {
   border: 3px solid red;
+}
+
+a{
+  color: pink
 }

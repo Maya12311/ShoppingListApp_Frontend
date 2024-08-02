@@ -35,7 +35,7 @@ date:Date = new Date();
   }
 
   ngOnInit(): void {
-
+this.registerForm.get('productName')?.valueChanges.subscribe(sub => this.submitted=false )
   }
 
 

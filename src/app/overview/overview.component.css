@@ -11,13 +11,11 @@
 	text-align: center;
 }
 
-.pink{
+p{
 	color: pink;
 }
 
-.blue{
-	color: lightblue;
-}
+
 
 h1{
 	break-inside: avoid;
@@ -27,6 +25,6 @@ p{
 	cursor:pointer;
 
 	&:hover{
-		color: blueviolet;
+		color: lightblue;
 	}
 }

@@ -5,7 +5,7 @@
 </header>
 <!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html>
-
+  
 <body>
   <div class="wrapper">
 
@@ -19,7 +19,8 @@
         registerForm.get('productName')?.invalid &&
         (registerForm.get('productName')?.dirty ||
           registerForm.get('productName')?.touched)"  placeholder=" Which product would you like to add?" type="text" required formControlName="productName" (change)="startToFillOut()">
-      <div  class="error" *ngIf="(registerForm.controls['productName'].errors  && registerForm.get('productName')?.invalid && submitted )" >
+      <div  class="error" 
+      *ngIf="registerForm.get('productName')?.invalid && registerForm.get('productName')?.pristine && submitted " >
         <p>This field is required</p>
       </div>
       </div>
@@ -51,7 +52,7 @@
 
         </div>
         <div class="error"   *ngIf="registerForm.get('priority')?.invalid && registerForm.get('productName')?.pristine && submitted ">
-          <p>This field is required</p>
+          <p>Please select one of the options</p>
         </div>
 
          
@@ -70,7 +71,7 @@
         </select>
 
         <div class="error"   *ngIf="registerForm.get('shoppingLocation')?.invalid && registerForm.get('productName')?.pristine && submitted "  >
-          <p>This field is required</p>
+          <p>Please select one of the options</p>
         </div>
         <span>You can later search the products after shopping location</span>
       </div>
@@ -89,12 +90,14 @@
       <button  type="submit">add product</button>
 <div *ngIf=" successMessage!= null">
       <p class="success"> <strong>{{successMessage}}</strong></p>
+    <a> <p routerLink="/allProducts">Click here to see all products </p></a> 
     </div>
 
       <div *ngIf="errorMessage!=null && registerForm.get('productName')?.untouched" >
         <p class="error"><strong>{{errorMessage}}</strong></p>
       </div>
       <div class="register">
+
         <p>Don't have an account? <a href="#">Register</a></p>
       </div>
     </form>
