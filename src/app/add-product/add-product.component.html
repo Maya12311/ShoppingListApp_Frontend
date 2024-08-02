@@ -15,8 +15,11 @@
         <div class="input-field">
           <label>*Product name:</label>
 
-        <input placeholder=" Which product would you like to add?" type="text" required formControlName="productName" (change)="startToFillOut()">
-      <div class="error" *ngIf="registerForm.controls['productName'].errors && registerForm.get('productName')?.touched && registerForm.get('productName')?.invalid">
+        <input [class.invalid]="
+        registerForm.get('productName')?.invalid &&
+        (registerForm.get('productName')?.dirty ||
+          registerForm.get('productName')?.touched)"  placeholder=" Which product would you like to add?" type="text" required formControlName="productName" (change)="startToFillOut()">
+      <div  class="error" *ngIf="(registerForm.controls['productName'].errors  && registerForm.get('productName')?.invalid && submitted )" >
         <p>This field is required</p>
       </div>
       </div>
@@ -37,14 +40,17 @@
       <div class="input-field">
         <label>*Priority</label>
 
-        <select   formControlName="priority" #selectList (change)="setValue(selectList.value)" required>
+        <select [class.invalid]="
+        registerForm.get('priority')?.invalid &&
+        (registerForm.get('priority')?.dirty ||
+          registerForm.get('priority')?.touched)"    formControlName="priority" #selectList (change)="setValue(selectList.value)" required>
           <option  disabled selected>Select your option</option>
 
           <option   *ngFor="let c of priority" value="{{c.springName}}">{{c.name}}{{c.id}}</option>
         </select>
 
         </div>
-        <div class="error"  *ngIf="registerForm.get('priority')?.invalid && registerForm.get('productName')?.pristine && submitted "  >
+        <div class="error"   *ngIf="registerForm.get('priority')?.invalid && registerForm.get('productName')?.pristine && submitted ">
           <p>This field is required</p>
         </div>
 
@@ -54,7 +60,10 @@
       <div class="input-field">
         <label>*Shopping location</label>
 
-        <select formControlName="shoppingLocation" #selectLocation (change)="setLocation(selectLocation.value)" required="supermarket|drugstore|online">
+        <select [class.invalid]="
+        registerForm.get('shoppingLocation')?.invalid &&
+        (registerForm.get('shoppingLocation')?.dirty ||
+          registerForm.get('shoppingLocation')?.touched)"  formControlName="shoppingLocation" #selectLocation (change)="setLocation(selectLocation.value)" required="supermarket|drugstore|online">
           <option value="" disabled selected>Select your option</option>
 
       <option *ngFor="let sl of shoppingLocations" value="{{sl.name}}">{{sl.name}}{{sl.id}}</option>    
