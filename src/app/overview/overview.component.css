@@ -1,6 +1,3 @@
-
-
-
 .overlay-text {
 	position: absolute;
 	top: 50%; 
@@ -9,6 +6,12 @@
 	color: #fff; 
 	font-size: 30px; 
 	text-align: center;
+	gap: 80px;
+
+}
+
+div{
+	display: flex;
 }
 
 p{
@@ -17,8 +20,9 @@ p{
 
 
 
-h1{
+h2{
 	break-inside: avoid;
+	writing-mode: vertical-lr;
 }
 
 p{
@@ -28,3 +32,4 @@ p{
 		color: lightblue;
 	}
 }
+

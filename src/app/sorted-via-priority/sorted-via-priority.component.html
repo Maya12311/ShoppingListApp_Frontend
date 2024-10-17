@@ -1,0 +1,27 @@
+<section>
+  <fieldset>
+    <legend>Pick products after the priority</legend>
+  <input type="checkbox" name="today" #today value="today" (change)="choosePriority(today.value)" >
+  <label for="">today</label>
+  <input type="checkbox" name="nextWeek" #nextWeek value="nextWeek" (change)="choosePriority(nextWeek.value)">
+  <label for="thisWeek">This week</label>
+  <input type="checkbox" name="nextMonth" #nextMonth value="nextMonth" (change)="choosePriority(nextMonth.value)">
+  <label for="nextMonth">This Month</label>
+  <input type="checkbox" name="sometime" id="" #sometime value="sometime" (change)="choosePriority(sometime.value)">
+  <label for="sometime">Sometime</label>
+</fieldset>
+</section>
+
+<div *ngFor="let p of products">
+
+</div>
+
+<div *ngIf="checkboxes.today">
+  <app-sort-by-today [today]="checkboxes.today" [prods]="products" ></app-sort-by-today>
+</div>
+
+<div *ngIf="checkboxes.nextWeek">
+  <app-sort-by-this-week [nextWeek]="checkboxes.nextWeek" [prods]="products" [nextWeek]="checkboxes.nextWeek"></app-sort-by-this-week>
+</div>
+
+

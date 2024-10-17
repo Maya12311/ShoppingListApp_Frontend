@@ -11,6 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AllProductsComponent implements OnInit {
 
   public products?: Product[]; 
+  nextWeek: string = "nextWeek"
+nextMonth: string = "nextMonth"
 
   constructor(private productService: AllProductsService ) {}
 

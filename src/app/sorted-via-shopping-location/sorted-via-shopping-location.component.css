@@ -1,0 +1,31 @@
+
+*{
+    font-family: 'Gloria Hallelujah', cursive;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+
+
+table{
+ margin-left: 50px;
+ margin-top: 20px;
+}
+
+
+.child{
+margin-left: 10px;
+margin-right: 10px;
+flex: 1;
+}
+
+
+.parent{
+display: flex
+;}
+
+
+
+
+

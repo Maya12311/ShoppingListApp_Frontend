@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+<div >
+
+
+    <h2>Select the products via shopping location</h2>
+
+
+    <div >
+      <fieldset>
+        <input  type="checkbox"  #location (change)="chooseLocation(location.value)" value="supermarket"  >
+        <label>supermarket 🛒</label>
+
+        <input  type="checkbox" value="drugstore"    #drugstore (change)="chooseLocation(drugstore.value)" >
+ <label>drug store 👸</label>
+
+ <input type="checkbox" value="online" #online   (change)="chooseLocation(online.value)" >
+    <label>online 💻</label>
+  </fieldset>
+    </div>
+</div>
+
+
+
+
+        <table>
+
+
+
+<div class="parent">
+<div class="child" *ngIf="checkboxes.supermarket" style="background-color: brown;">
+<app-sort-by-supermarket  [prods]="products" [supermarket]="checkboxes.supermarket" ></app-sort-by-supermarket>
+</div>
+<br>
+<div class="child" *ngIf="checkboxes.drugstore" style="background-color: blue;">
+  <app-sort-by-drogstore [prods]="productsDrugstore" [drugstore]="checkboxes.drugstore" ></app-sort-by-drogstore>
+</div>
+<br>
+<div class="child" *ngIf="checkboxes.online" style="background-color: aqua;">
+  <app-sort-by-online [prods]="productsOnline" [online]="checkboxes.online"></app-sort-by-online>
+</div>
+</div>
+
+
+
+        </table>
+
+
+
+
+
+

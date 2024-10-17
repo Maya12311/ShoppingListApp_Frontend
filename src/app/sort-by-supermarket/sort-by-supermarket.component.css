@@ -1,0 +1,15 @@
+*{
+    font-family: 'Gloria Hallelujah', cursive;
+
+}
+
+table,
+th, td
+{
+  border: 1px solid black;
+  color:  yellow;
+}
+
+td{
+  text-align: center;
+}

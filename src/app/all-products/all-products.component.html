@@ -1,15 +1,12 @@
 
-<header>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap">
 
-</header>
 
 
 <body>
 <table >
-<ul >
+
     <tr >
-        <th>Todo</th>
+        <th>To do</th>
         <th>Product name</th>
         <th>Amount</th>
         <th>Gram/Ml</th>
@@ -20,17 +17,19 @@
     </tr>
     <tbody>
     <tr *ngFor="let product of products">
-        <td>  <input type="checkbox" >
+        <td>
+            <input type="checkbox" >
         </td>
 	<td>{{product.productName}}</td>
 	<td>{{product.amount}}</td>
 	<td>{{product.gramMl}}</td>
-	<td>{{product.priority}}</td>
+	<td >{{product.priority}}</td>
+
 	<td>{{product.shoppingLocation}}</td>
 	<td>{{product.alarmDate}}</td>
     <td></td>
 </tr>
 </tbody>
-</ul>
+
 </table>
 </body>

@@ -17,4 +17,7 @@ private apiServerUrl = environment.apiBaseUrl;
       return this.http.get<Product[]>(`${this.apiServerUrl}/products`)
     
    }
+
+
+   
 }
