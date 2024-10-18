@@ -1,9 +1,11 @@
+import { NextMonthService } from './Service/next-month.service';
 import { NextWeekService } from './Service/next-week.service';
 import { Product } from './../all-products/product';
 import { any } from 'underscore';
 import { Component } from '@angular/core';
 import { TodayService } from './Service/today.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SometimeService } from './Service/sometime.service';
 
 @Component({
   selector: 'app-sorted-via-priority',
@@ -12,10 +14,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SortedViaPriorityComponent {
 
-  public products?: Product[];
+  public productsToday?: Product[];
+public productsNextWeek?: Product[];
+public productsNextMonth?: Product[];
+public productsSometime?: Product[];
 
-
-  constructor(private todayService: TodayService, private nextWeekService: NextWeekService){}
+  constructor(private todayService: TodayService, private nextWeekService: NextWeekService, private nextMonthService: NextMonthService, private sometime: SometimeService ){}
 
   checkboxes= {
     today: false,
@@ -29,24 +33,26 @@ export class SortedViaPriorityComponent {
     console.log(priority);
 
 if(priority == "today"){
-  console.log("it is");
   this.todayService.priority= priority;
-
   this.checkboxes.today=!this.checkboxes.today;
   this.findByPriorityToday();
-} else if(priority =="nextWeek"){
-  console.log("im in nextWeek");
 
+} else if(priority =="nextWeek"){
   this.checkboxes.nextWeek = !this.checkboxes.nextWeek;
   this.nextWeekService.priority= priority;
+  this.findByPriorityNextWeek();
 
-this.findByPriorityNextWeek();
+
 } else if(priority =="nextMonth"){
   this.checkboxes.nextMonth = !this.checkboxes.nextMonth;
-  this.todayService.priority= priority;
+this.nextMonthService.priority=priority;
+this.findByPriorityNextMonth();
 
 
-
+} else if(priority == "sometime"){
+  this.checkboxes.sometime = !this.checkboxes.sometime;
+  this.sometime.priority = priority;
+  this.findByPrioritySometime();
 }
   }
 
@@ -55,7 +61,7 @@ this.findByPriorityNextWeek();
     this.todayService.findByPriority().subscribe(
       (response: Product[]) => {
 
-        this.products=response;
+        this.productsToday=response;
 
       },
       (error: HttpErrorResponse) => {
@@ -68,7 +74,7 @@ this.findByPriorityNextWeek();
     this.nextWeekService.findByPriority().subscribe(
       (response: Product[]) => {
 
-        this.products=response;
+        this.productsNextWeek=response;
 
       },
       (error: HttpErrorResponse) => {
@@ -77,5 +83,30 @@ this.findByPriorityNextWeek();
     )
   }
 
+  public findByPriorityNextMonth(): void {
+    this.nextMonthService.findByPriority().subscribe(
+      (response: Product[]) => {
+
+        this.productsNextMonth=response;
+
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
+  }
+
+  public findByPrioritySometime(): void {
+    this.sometime.findByPriority().subscribe(
+      (response: Product[]) => {
+
+        this.productsSometime=response;
+
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
+  }
 
 }

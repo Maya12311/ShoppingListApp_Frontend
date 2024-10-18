@@ -1,0 +1,19 @@
+caption{
+  white-space: nowrap;
+}
+
+table, td
+,th
+{
+  border: black, solid, 1px
+
+}
+
+table
+{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: coral;
+  text-align: center;
+
+}

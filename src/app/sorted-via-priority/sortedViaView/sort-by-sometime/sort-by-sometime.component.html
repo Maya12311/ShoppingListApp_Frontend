@@ -1,1 +1,35 @@
-<p>sort-by-sometime works!</p>
+
+
+<table>
+
+  <tr>
+  <caption><span>Sometime Priority</span></caption>
+</tr>
+  <tr>
+   <th>Product name</th>
+   <th>Amount</th>
+   <th>Gram/Ml</th>
+   <th>Shopping Location</th>
+</tr>
+
+
+
+<tr *ngFor="let p of prods">
+
+
+
+              <td>{{p.productName}}</td>
+
+              <td>{{p.amount}}</td>
+
+
+              <td>{{p.gramMl}}</td>
+<td>{{p.shoppingLocation}}</td>
+
+
+
+      </tr>
+
+
+  </table>
+

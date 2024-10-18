@@ -12,16 +12,23 @@
 </fieldset>
 </section>
 
-<div *ngFor="let p of products">
+<div >
 
 </div>
 
 <div *ngIf="checkboxes.today">
-  <app-sort-by-today [today]="checkboxes.today" [prods]="products" ></app-sort-by-today>
+  <app-sort-by-today [today]="checkboxes.today" [prods]="productsToday" ></app-sort-by-today>
 </div>
 
 <div *ngIf="checkboxes.nextWeek">
-  <app-sort-by-this-week [nextWeek]="checkboxes.nextWeek" [prods]="products" [nextWeek]="checkboxes.nextWeek"></app-sort-by-this-week>
+  <app-sort-by-this-week [nextWeek]="checkboxes.nextWeek" [prods]="productsNextWeek" ></app-sort-by-this-week>
+</div>
+
+<div *ngIf="checkboxes.nextMonth">
+  <app-sort-by-this-month [nextMonth]="checkboxes.nextMonth" [prods]="productsNextMonth"></app-sort-by-this-month>
+</div>
+<div *ngIf="checkboxes.sometime">
+  <app-sort-by-sometime [sometime]="checkboxes.sometime" [prods]="productsSometime"></app-sort-by-sometime>
 </div>
 
 
