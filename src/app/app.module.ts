@@ -9,7 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { AllProductsService } from './all-products/all-products.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductService } from './add-product/add-product.service';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +24,8 @@ import { SortByTodayComponent } from './sorted-via-priority/sortedViaView/sort-b
 import { SortByThisWeekComponent } from './sorted-via-priority/sortedViaView/sort-by-this-week/sort-by-this-week.component';
 import { SortByThisMonthComponent } from './sorted-via-priority/sortedViaView/sort-by-this-month/sort-by-this-month.component';
 import { SortBySometimeComponent } from './sorted-via-priority/sortedViaView/sort-by-sometime/sort-by-sometime.component';
+import { AuthContentComponent } from './auth-content/auth-content.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,8 @@ import { SortBySometimeComponent } from './sorted-via-priority/sortedViaView/sor
     SortByThisWeekComponent,
     SortByThisMonthComponent,
     SortBySometimeComponent,
+    AuthContentComponent,
+    LoginComponent,
 
 
   ],
@@ -52,7 +56,7 @@ import { SortBySometimeComponent } from './sorted-via-priority/sortedViaView/sor
     FormsModule,
 
   ],
-  providers: [AllProductsService, AddProductService, FindByShoppingLocationService, DrugstoreService],
+  providers: [AllProductsService, AddProductService, FindByShoppingLocationService, DrugstoreService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
